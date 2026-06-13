@@ -1,12 +1,13 @@
-# Type 1 Diabetes Educational App
-## Tech Stack
+# TM470: T1D Educational App
+## Chosen Tech Stack
 ### Frontend
 - Vite
 - React
 - TypeScript
-- React Router
-- Mantine
-- Phosphor Icons
+- React Router v7
+- UI
+- - Mantine
+- - Phosphor Icons
 
 ### Backend
 - ExpressAPI
