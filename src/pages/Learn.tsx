@@ -1,17 +1,13 @@
 import { Button } from "@mantine/core";
 import { RabbitIcon } from "@phosphor-icons/react";
-import UserAgreement from "../components/UserAgreement";
 
-export default function Home() {
+export default function Learn() {
   return (
-    <>
     <Button 
-      color="green" 
+      color="blue" 
       leftSection={<RabbitIcon/>}
     >
-        Home
+        Learn
     </Button>
-    <UserAgreement/>
-    </>
   );
 }

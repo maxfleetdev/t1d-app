@@ -1,8 +1,12 @@
 import { Routes, Route } from 'react-router';
 import { useDisclosure } from '@mantine/hooks';
 import { AppShell, Group, Burger } from '@mantine/core';
+
 import Home from './pages/Home';
+import Learn from './pages/Learn';
 import NavigationButton from './components/navigation/NavigationButton';
+import Simulator from './pages/Simulator';
+import Quiz from './pages/Quiz';
 
 function App() {
   const [opened, {toggle}] = useDisclosure();
@@ -37,6 +41,9 @@ function App() {
       <AppShell.Main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="learn" element={<Learn />} />
+          <Route path="simulator" element={<Simulator />} />
+          <Route path="quiz" element={<Quiz />} />
           <Route path="*" element={<h2>404: Page Not Found</h2>} />
         </Routes>
       </AppShell.Main>
