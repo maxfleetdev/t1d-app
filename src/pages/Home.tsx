@@ -1,17 +1,14 @@
-import { Button } from "@mantine/core";
-import { RabbitIcon } from "@phosphor-icons/react";
+import { useSessionStorage } from "@mantine/hooks";
 import UserAgreement from "../components/UserAgreement";
 
 export default function Home() {
+
+
   return (
     <>
-    <Button 
-      color="green" 
-      leftSection={<RabbitIcon/>}
-    >
-        Home
-    </Button>
-    <UserAgreement/>
+      {/* Only show agreement if the user hasn't agreed */}
+
+      <h1>Welcome Home :3</h1>
     </>
   );
 }

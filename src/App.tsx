@@ -1,15 +1,24 @@
 import { Routes, Route } from 'react-router';
-import { useDisclosure } from '@mantine/hooks';
+import { useDisclosure, useSessionStorage } from '@mantine/hooks';
 import { AppShell, Group, Burger } from '@mantine/core';
-
 import Home from './pages/Home';
 import Learn from './pages/Learn';
 import NavigationButton from './components/navigation/NavigationButton';
 import Simulator from './pages/Simulator';
 import Quiz from './pages/Quiz';
+import UserAgreement from './components/UserAgreement';
+
 
 function App() {
   const [opened, {toggle}] = useDisclosure();
+  // Stores agreement for this current session
+  const [agreed, setAgreed] = useSessionStorage({
+    key: 'user-agree-to-terms',
+    defaultValue: false,
+  });
+  const handleAgreement = () => {
+    setAgreed(true);
+  }
   return (
     <AppShell
       header={{ height: 60 }}
@@ -39,6 +48,9 @@ function App() {
       </AppShell.Navbar>
 
       <AppShell.Main>
+        { !agreed && (
+          <UserAgreement onAgree={handleAgreement}/>
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="learn" element={<Learn />} />

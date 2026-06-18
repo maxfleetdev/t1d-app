@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "api": "tsx watch api/server.ts",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -15,6 +16,9 @@
     "@mantine/form": "^9.3.1",
     "@mantine/hooks": "^9.3.1",
     "@phosphor-icons/react": "^2.1.10",
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router": "^7.17.0",
@@ -22,6 +26,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -33,6 +40,7 @@
     "postcss": "^8.5.15",
     "postcss-preset-mantine": "^1.18.0",
     "postcss-simple-vars": "^7.0.1",
+    "tsx": "^4.22.4",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12"
