@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router';
 import { useDisclosure, useSessionStorage } from '@mantine/hooks';
 import { AppShell, Group, Burger } from '@mantine/core';
+
 import Home from './pages/Home';
 import Learn from './pages/Learn';
 import NavigationButton from './components/navigation/NavigationButton';
 import Simulator from './pages/Simulator';
 import Quiz from './pages/Quiz';
 import UserAgreement from './components/UserAgreement';
-
 
 function App() {
   const [opened, {toggle}] = useDisclosure();
@@ -24,13 +24,15 @@ function App() {
       header={{ height: 60 }}
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"
+      transitionDuration={0}
+      transitionTimingFunction="ease"
     >
       <AppShell.Header>
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group justify="space-between" style={{ flex: 1 }}>
             T1D Educational Tool
-            <Group ml="xl" gap={10} visibleFrom="sm">
+            <Group ml="xl" gap={15} visibleFrom="sm">
               <NavigationButton to='/' buttonText="Home"/>
               <NavigationButton to='learn' buttonText="Learn"/>
               <NavigationButton to='simulator' buttonText="Simulator"/>

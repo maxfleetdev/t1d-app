@@ -1,4 +1,4 @@
-import { Button } from "@mantine/core"
+import { Button, NavLink } from "@mantine/core"
 import { Link } from "react-router"
 
 interface NavigationButtonProps {
