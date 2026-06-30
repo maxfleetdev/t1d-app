@@ -42,7 +42,7 @@ function App() {
         </Group>
       </AppShell.Header>
 
-      <AppShell.Navbar py="md" px={4}>
+      <AppShell.Navbar py="md" px="md">
         <NavigationButton to='/' buttonText="Home"/>
         <NavigationButton to='learn' buttonText="Learn"/>
         <NavigationButton to='simulator' buttonText="Simulator"/>

@@ -1,5 +1,7 @@
-import { Grid, ScrollAreaAutosize, Tabs } from "@mantine/core";
+import { Grid, Tabs } from "@mantine/core";
 import { ChartDemo } from "../components/chart/ChartDemo";
+import InsulinVariableView from "../components/simulator/InsulinVariableView";
+import FoodVariableView from "../components/simulator/FoodVariableView";
 
 export default function Simulator() {
   return (
@@ -20,18 +22,19 @@ export default function Simulator() {
           </Tabs.List>
 
           <Tabs.Panel value="insulin">
-            Insulin tab content
+            <InsulinVariableView/>
           </Tabs.Panel>
 
           <Tabs.Panel value="food">
-            Food tab content
+            <FoodVariableView/>
           </Tabs.Panel>
 
           <Tabs.Panel value="factors">
-            Factors tab content
+            Other factors
           </Tabs.Panel>
         </Tabs>
       </Grid.Col>
+
       <Grid.Col span="auto">
         <h2>Simulator</h2>
         <ChartDemo/>
