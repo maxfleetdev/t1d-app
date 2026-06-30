@@ -37,7 +37,7 @@ function App() {
               <NavigationButton to='learn' buttonText="Learn"/>
               <NavigationButton to='simulator' buttonText="Simulator"/>
               <NavigationButton to='quiz' buttonText="Quiz"/>
-            </Group>
+            </Group> 
           </Group>
         </Group>
       </AppShell.Header>
