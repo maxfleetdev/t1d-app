@@ -54,10 +54,10 @@ function App() {
           <UserAgreement onAgree={handleAgreement}/>
         )}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="learn" element={<Learn />} />
-          <Route path="simulator" element={<Simulator />} />
-          <Route path="quiz" element={<Quiz />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="learn" element={<Learn/>} />
+          <Route path="simulator" element={<Simulator/>} />
+          <Route path="quiz" element={<Quiz/>} />
           <Route path="*" element={<h2>404: Page Not Found</h2>} />
         </Routes>
       </AppShell.Main>
