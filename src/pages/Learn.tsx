@@ -1,7 +1,9 @@
+import ModuleList from "../components/learning/ModuleList";
+
 export default function Learn() {
   return (
     <>
-      <h1>Learning</h1>
+      <ModuleList/>
     </>
   );
 }

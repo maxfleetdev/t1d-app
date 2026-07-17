@@ -48,7 +48,7 @@ function App() {
         <NavigationButton to='simulator' buttonText="Simulator"/>
         <NavigationButton to='quiz' buttonText="Quiz"/>
       </AppShell.Navbar>
-
+      
       <AppShell.Main>
         { !agreed && (
           <UserAgreement onAgree={handleAgreement}/>
@@ -61,6 +61,7 @@ function App() {
           <Route path="*" element={<h2>404: Page Not Found</h2>} />
         </Routes>
       </AppShell.Main>
+
     </AppShell>
   );
 }

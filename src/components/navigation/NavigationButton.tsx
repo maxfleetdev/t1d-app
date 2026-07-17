@@ -1,4 +1,4 @@
-import { Button, NavLink } from "@mantine/core"
+import { Button } from "@mantine/core"
 import { Link } from "react-router"
 
 interface NavigationButtonProps {
@@ -6,6 +6,7 @@ interface NavigationButtonProps {
     buttonText: string
 }
 
+// TODO: Change button's colour when selected/on navigation page
 export function NavigationButton({to, buttonText}: NavigationButtonProps) {
     return (
         <Button 
