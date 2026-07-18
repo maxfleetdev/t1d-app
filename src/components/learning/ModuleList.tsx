@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Grid, NavLink, Paper, Title, Stack } from '@mantine/core';
+import { Button, Grid, Group, NavLink, Paper, Title, Stack } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
-import { findSectionById, getSections, type SectionGroup } from './SectionData';
+import { findSectionById, flattenSections, getSections, type SectionGroup } from './SectionData';
 
 export default function ModuleList() {
   const [activeId, setActiveId] = useState('1.1');
@@ -35,12 +35,15 @@ export default function ModuleList() {
   }, []);
 
   const currentSection = findSectionById(sections, activeId);
+  const flattenedSections = flattenSections(sections);
+  const currentIndex = flattenedSections.findIndex((section) => section.id === activeId);
+  const previousSection = flattenedSections[currentIndex - 1] ?? null;
+  const nextSection = flattenedSections[currentIndex + 1] ?? null;
 
   useEffect(() => {
     if (!currentSection?.file) {
       return;
     }
-
     const controller = new AbortController();
 
     fetch(`/content/${currentSection.file}`, { signal: controller.signal })
@@ -99,6 +102,28 @@ export default function ModuleList() {
             <div className="markdown-body">
               <ReactMarkdown>{markdownContent}</ReactMarkdown>
             </div>
+
+            <Group justify="space-between" mt="lg">
+              {previousSection && (<Button
+                  variant="default"
+                  onClick={() => previousSection && setActiveId(previousSection.id)}
+                  disabled={!previousSection}
+                >
+                  {previousSection ? `← ${previousSection.title}` : 'Previous section'}
+                </Button>) 
+                || !previousSection && (<div/>)
+              }
+
+              {nextSection && (<Button
+                  variant="filled"
+                  onClick={() => nextSection && setActiveId(nextSection.id)}
+                  disabled={!nextSection}
+                >
+                  {nextSection ? `${nextSection.title} →` : 'Next section'}
+                </Button>) 
+                || !nextSection && (<div/>)
+              }
+            </Group>
           </Paper>
         )}
       </Grid.Col>

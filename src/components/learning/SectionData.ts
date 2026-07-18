@@ -37,3 +37,7 @@ export function findSectionById(sections: SectionGroup[], activeId: string): Sec
 
   return null;
 }
+
+export function flattenSections(sections: SectionGroup[]): SectionChild[] {
+  return sections.flatMap((section) => section.children ?? []);
+}

@@ -1,16 +1,18 @@
 [
     {
         "id": "1.0",
-        "title": "1. Introduction",
-        "children": [{
-            "id": "1.1",
-            "title": "1.1 Background",
-            "file": "section-1/1.1-background.md"
-        },
-        {
-            "id": "1.2",
-            "title": "1.2 Overview",
-            "file": "section-1/1.2-overview.md"
-        }]
+        "title": "1. Understanding diabetes",
+        "children": [
+            {
+                "id": "1.1",
+                "title": "1.1 What is diabetes?",
+                "file": "section-1/1.1-what-is-diabetes.md"
+            },
+            {
+                "id": "1.2",
+                "title": "1.2 Different types of diabetes",
+                "file": "section-1/1.2-high-vs-low.md"
+            }
+        ]
     }
 ]
