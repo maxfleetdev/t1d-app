@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1.0",
+        "title": "1. Introduction",
+        "children": [{
+            "id": "1.1",
+            "title": "1.1 Background",
+            "file": "section-1/1.1-background.md"
+        },
+        {
+            "id": "1.2",
+            "title": "1.2 Overview",
+            "file": "section-1/1.2-overview.md"
+        }]
+    }
+]
