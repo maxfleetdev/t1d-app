@@ -1,9 +1,10 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import { useDisclosure, useSessionStorage } from '@mantine/hooks';
 import { AppShell, Group, Burger } from '@mantine/core';
 
 import Home from './pages/Home';
 import Learn from './pages/Learn';
+import SectionPage from './components/learning/SectionPage';
 import NavigationButton from './components/navigation/NavigationButton';
 import Simulator from './pages/Simulator';
 import Quiz from './pages/Quiz';
@@ -55,7 +56,10 @@ function App() {
         )}
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="learn" element={<Learn/>} />
+          <Route path="learn" element={<Learn/>}>
+            <Route index element={<Navigate to="1.1" replace />} />
+            <Route path=":sectionId" element={<SectionPage/>} />
+          </Route>
           <Route path="simulator" element={<Simulator/>} />
           <Route path="quiz" element={<Quiz/>} />
           <Route path="*" element={<h2>404: Page Not Found</h2>} />

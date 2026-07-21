@@ -15,7 +15,6 @@ export const CONTENT_MANIFEST_PATH = '/content/sections.json';
 
 export async function getSections(): Promise<SectionGroup[]> {
   const response = await fetch(CONTENT_MANIFEST_PATH);
-
   if (!response.ok) {
     throw new Error(`Failed to load section manifest from ${CONTENT_MANIFEST_PATH}`);
   }
@@ -34,7 +33,7 @@ export function findSectionById(sections: SectionGroup[], activeId: string): Sec
       return childMatch;
     }
   }
-
+  
   return null;
 }
 
