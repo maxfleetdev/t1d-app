@@ -1,0 +1,81 @@
+[
+    {
+        "id": "1.0",
+        "title": "1. What is Type 1 Diabetes?",
+        "children": [
+            {
+                "id": "1.1",
+                "title": "About Type 1 Diabetes",
+                "file": "section-1/1.1-what-is-diabetes.md"
+            },
+            {
+                "id": "1.2",
+                "title": "Diabetes Types",
+                "file": "section-1/1.2-type-differences.md"
+            },
+            {
+                "id": "1.3",
+                "title": "Basal vs Bolus Insulin",
+                "file": "section-1/1.3-basal-vs-bolus.md"
+            }
+        ]
+    },
+    {
+        "id": "2.0",
+        "title": "2. High vs Low Blood Sugar",
+        "children": [
+            {
+                "id": "2.1",
+                "title": "High Blood Sugar (Hyperglycemia)",
+                "file": "section-2/2.1-high.md"
+            },
+            {
+                "id": "2.2",
+                "title": "Low Blood Sugar (Hypoglycemia)",
+                "file": "section-2/2.2-low.md"
+            }
+        ]
+    },
+    {
+        "id": "3.0",
+        "title": "3. Diabetes Management",
+        "children": [
+            {
+                "id": "3.1",
+                "title": "3.1 ...",
+                "file": "section-1/1.1-what-is-diabetes.md"
+            },
+            {
+                "id": "3.2",
+                "title": "3.2 ...",
+                "file": "section-1/1.2-high-vs-low.md"
+            }
+        ]
+    },
+    {
+        "id": "4.0",
+        "title": "4. Type 1 Diabetic Emergencies",
+        "children": [
+            {
+                "id": "4.1",
+                "title": "Diabetic Ketoacidosis (DKA)",
+                "file": "section-1/1.1-what-is-diabetes.md"
+            },
+            {
+                "id": "4.2",
+                "title": "Signs and Symptoms of DKA",
+                "file": "section-1/1.1-what-is-diabetes.md"
+            },
+            {
+                "id": "4.3",
+                "title": "Severe Hypoglycemia",
+                "file": "section-1/1.2-high-vs-low.md"
+            },
+            {
+                "id": "4.4",
+                "title": "Signs and Symptoms of Hypoglycemia",
+                "file": "section-1/1.2-high-vs-low.md"
+            }
+        ]
+    }
+]
