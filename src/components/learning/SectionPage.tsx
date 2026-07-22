@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { Button, Group, Paper, Title } from '@mantine/core';
-import ReactMarkdown from 'react-markdown';
 import { findSectionById, flattenSections, getSections, type SectionGroup } from './SectionData';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default function SectionPage() {
   const { sectionId } = useParams<{ sectionId?: string }>();
@@ -76,6 +77,8 @@ export default function SectionPage() {
     return () => controller.abort();
   }, [currentSection?.file]);
 
+  
+
   if (isLoadingSections) {
     return <div>Loading sections...</div>;
   }
@@ -98,7 +101,7 @@ export default function SectionPage() {
         {currentSection.title}
       </Title>
       <div className="markdown-body">
-        {isLoadingContent ? <div>Loading content...</div> : <ReactMarkdown>{markdownContent}</ReactMarkdown>}
+        {isLoadingContent ? <div>Loading content...</div> : <Markdown remarkPlugins={[remarkGfm]}>{markdownContent}</Markdown>}
       </div>
       <Group justify="space-between" mt="lg">
         {previousSection ? (
