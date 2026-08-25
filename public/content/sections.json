@@ -42,13 +42,13 @@
         "children": [
             {
                 "id": "3.1",
-                "title": "3.1 ...",
-                "file": "section-1/1.1-what-is-diabetes.md"
+                "title": "3.1 Carbohydrates and Sugar",
+                "file": "section-3/3.1-carbs-and-sugar.md"
             },
             {
                 "id": "3.2",
-                "title": "3.2 ...",
-                "file": "section-1/1.2-high-vs-low.md"
+                "title": "3.2 Correction doses",
+                "file": "section-3/3.2-correction-doses.md"
             }
         ]
     },
@@ -63,17 +63,7 @@
             },
             {
                 "id": "4.2",
-                "title": "Signs and Symptoms of DKA",
-                "file": "section-1/1.1-what-is-diabetes.md"
-            },
-            {
-                "id": "4.3",
                 "title": "Severe Hypoglycemia",
-                "file": "section-1/1.2-high-vs-low.md"
-            },
-            {
-                "id": "4.4",
-                "title": "Signs and Symptoms of Hypoglycemia",
                 "file": "section-1/1.2-high-vs-low.md"
             }
         ]
