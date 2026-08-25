@@ -1,4 +1,4 @@
-import QuestionView from "../components/quiz/QuestionView";
+import QuizList from "../components/quiz/QuizList";
 
 export default function Quiz() {
   // 1. List of questions
@@ -7,12 +7,7 @@ export default function Quiz() {
   // 4. Once complete, submit answers to database with user's ID and quiz results
   return (
     <div>
-      <QuestionView
-        question="What is the capital of France?"
-        options={["Berlin", "Madrid", "Paris", "Rome"]}
-        answer="Paris"
-        onAnswerSelected={(answer) => console.log("Selected answer:", answer)}
-      />
+      <QuizList/>
     </div>
   );
 }
