@@ -57,7 +57,7 @@ export default function QuizList() {
     }
 
     if (!currentQuestion) {
-        return <p>Quiz complete. You scored {currentScore} points.</p>;
+        return <p>Quiz complete. You answered {currentScore} of {questions.length} questions correct.</p>;
     }
 
     return(
