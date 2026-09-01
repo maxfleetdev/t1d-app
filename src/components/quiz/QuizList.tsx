@@ -5,14 +5,24 @@ import { Button } from '@mantine/core';
 
 const questions: QuizQuestion[] = [
     {
-        question: "What is the capital of France?",
-        options: ["Moscow", "Madrid", "Paris", "Rome"],
-        answer: "Paris",
+        question: "1. What is the mmol/L of hypoglycemia?",
+        options: ["5 mmol/L", "8 mmol/L", "4 mmol/L", "6 mmol/L"],
+        answer: "4 mmol/L",
     },
     {
-        question: "What is the capital of Germany?",
-        options: ["Berlin", "London", "Lebanon", "Tokyo"],
-        answer: "Berlin",
+        question: "2. What is the recommended treatment of a hypo (>4 mmol/L)?",
+        options: ["Chocolate cake", "Fast acting glucose", "Toast", "Mars bar"],
+        answer: "Fast acting glucose",
+    },
+    {
+        question: "2. What is the recommended treatment of a hypo (>4 mmol/L)?",
+        options: ["Chocolate cake", "Fast acting glucose", "Toast", "Mars bar"],
+        answer: "Fast acting glucose",
+    },
+    {
+        question: "3. What is the typical mmol/L of hyperglycemia?",
+        options: ["11 mmol/L", "7 mmol/L", "9 mmol/L", "6 mmol/L"],
+        answer: "11 mmol/L",
     },
 ];
 
@@ -31,6 +41,7 @@ export default function QuizList() {
      */
     function handleSubmitAnswer() {
         if (selectedOption == "") {
+            setMessage("You must select an answer.")
             return;
         }
         // Only increase score if answer is correct
@@ -60,11 +71,17 @@ export default function QuizList() {
         return <p>Quiz complete. You answered {currentScore} of {questions.length} questions correct.</p>;
     }
 
-    return(
+    return (
         <div>
-            <QuestionView {...currentQuestion} onSelected={setSelectedOption} />
-            <Button onClick={handleSubmitAnswer}>Submit</Button>
-            <Button onClick={handleNextQuestion} disabled={!isSubmitted}>Next</Button>
+            <QuestionView 
+                key={currentQuestionIndex} 
+                {...currentQuestion} 
+                onSelected={setSelectedOption} 
+            />
+            <div style={{marginTop: '50px'}}>
+                <Button onClick={handleSubmitAnswer}>Submit</Button>
+                <Button onClick={handleNextQuestion} disabled={!isSubmitted}>Next</Button>
+            </div>
             <div>
                 <p>{message}</p>
             </div>

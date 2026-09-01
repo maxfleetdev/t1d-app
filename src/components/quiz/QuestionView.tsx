@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export type QuestionViewProps = {
     question: string;
@@ -13,6 +13,10 @@ export type QuizQuestion = Omit<QuestionViewProps, 'onSelected'>;
 export default function QuestionView({ question, options, onSelected: onOptionSelected }: QuestionViewProps) {
     const [indexSelected, setIndexSelected] = useState(-1);
     
+    useEffect(() => {
+        setIndexSelected(-1);
+    }, [question, options]);
+
     function handleOptionSelected(option: string, index: number) {
         setIndexSelected(index);
         onOptionSelected(option);
@@ -21,9 +25,9 @@ export default function QuestionView({ question, options, onSelected: onOptionSe
     return (
         <div>
             <h2>{question}</h2>
-            <ul>
+            <ul style={{listStyle: 'none', padding: '0px', margin: '0px'}}>
                 {options.map((option, index) => (
-                    <li key={index} style={{ marginBottom: '10px' }}>
+                    <li key={index} style={{ marginBottom: '10px'}}>
                         <Button 
                             onClick={() => handleOptionSelected(option, index)}
                             variant={indexSelected == index ? 'filled': 'default'}>
