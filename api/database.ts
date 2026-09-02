@@ -22,10 +22,7 @@ db.exec(`
 
   CREATE TABLE IF NOT EXISTS scores (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    quiz_name TEXT NOT NULL,
-    score INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    score INTEGER NOT NULL
   );
 `);
 

@@ -14,7 +14,7 @@ export default function UserAgreement({onAgree}: UserAgreementProps) {
 
     const NULL_MESSAGE = "Must enter your name";
 
-    async function Submit() {
+    async function OnSubmit() {
         if (name === "") {
             setError(NULL_MESSAGE);
             return;
@@ -45,7 +45,7 @@ export default function UserAgreement({onAgree}: UserAgreementProps) {
         }
     }
 
-    function InputChanged(value: string) {
+    function OnInputChanged(value: string) {
         setName(value);
         if (value === "") {
             setError(NULL_MESSAGE);
@@ -82,14 +82,14 @@ export default function UserAgreement({onAgree}: UserAgreementProps) {
                     label="Your name"
                     leftSection={<UserIcon/>}
                     value={name}
-                    onChange={(e) => InputChanged(e.currentTarget.value)}
+                    onChange={(e) => OnInputChanged(e.currentTarget.value)}
                     required
                     error={error}
                 />
             </Group>
             <Group justify="flex-end">
                 <Button 
-                    onClick={Submit}
+                    onClick={OnSubmit}
                     color="blue"
                     disabled={name === ""}
                 >

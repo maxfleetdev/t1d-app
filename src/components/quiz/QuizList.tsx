@@ -15,11 +15,6 @@ const questions: QuizQuestion[] = [
         answer: "Fast acting glucose",
     },
     {
-        question: "2. What is the recommended treatment of a hypo (>4 mmol/L)?",
-        options: ["Chocolate cake", "Fast acting glucose", "Toast", "Mars bar"],
-        answer: "Fast acting glucose",
-    },
-    {
         question: "3. What is the typical mmol/L of hyperglycemia?",
         options: ["11 mmol/L", "7 mmol/L", "9 mmol/L", "6 mmol/L"],
         answer: "11 mmol/L",
@@ -67,7 +62,27 @@ export default function QuizList() {
         setCurrentQuestionIndex((index) => index + 1);
     }
 
-    if (!currentQuestion) {
+    async function handleSubmitQuiz() {
+        handleSubmitAnswer();
+        
+        try {
+            const response = await fetch('http://localhost:3001/api/score', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ score: currentScore })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save quiz score');
+            }
+
+            const data = await response.json();
+            console.log("Score saved with ID:", data.ID);
+
+        } catch (err) {
+            console.error(err);
+            return <p>Quiz complete, but unable to save. You answered {currentScore} of {questions.length} questions correct.</p>;
+        }
         return <p>Quiz complete. You answered {currentScore} of {questions.length} questions correct.</p>;
     }
 
@@ -78,9 +93,12 @@ export default function QuizList() {
                 {...currentQuestion} 
                 onSelected={setSelectedOption} 
             />
-            <div style={{marginTop: '50px'}}>
-                <Button onClick={handleSubmitAnswer}>Submit</Button>
-                <Button onClick={handleNextQuestion} disabled={!isSubmitted}>Next</Button>
+            <div style={{marginTop: '50px '}}>
+                {currentQuestionIndex == questions.length - 1 ?
+                    (<Button onClick={handleSubmitQuiz}>Submit Quiz</Button>) : 
+                    (<Button onClick={handleSubmitAnswer}>Check Answer</Button>)
+                }
+                <Button onClick={handleNextQuestion} disabled={!isSubmitted}>Next Question </Button>
             </div>
             <div>
                 <p>{message}</p>
