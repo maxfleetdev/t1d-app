@@ -1,8 +1,30 @@
-import { ReferenceArea } from 'recharts';
+import { ReferenceArea, ReferenceDot } from 'recharts';
 import { LineChart } from '@mantine/charts';
-import { data } from './data';
+import { ForkKnife, PersonSimpleRun, Syringe } from '@phosphor-icons/react';
+import type { GlucosePoint, SimulationEventMarker } from '../simulator/simulateGlucose';
 
-export function ChartDemo() {
+type ChartDemoProps = {
+    data: GlucosePoint[];
+};
+
+function EventMarker({ event, index }: { event: SimulationEventMarker; index: number }) {
+    const Icon = event.type === 'food' ? ForkKnife : event.type === 'insulin' ? Syringe : PersonSimpleRun;
+    const color = event.type === 'food'
+        ? 'var(--mantine-color-orange-4)'
+        : event.type === 'insulin' ? 'var(--mantine-color-blue-4)' : 'var(--mantine-color-green-4)';
+
+    return (
+        <g transform={`translate(${index * 26 - 13}, -34)`}>
+            <title>{event.label}</title>
+            <circle cx="13" cy="13" r="11" fill="var(--mantine-color-dark-7)" stroke={color} strokeWidth="2" />
+            <foreignObject x="4" y="4" width="18" height="18">
+                <Icon size={18} color={color} weight="bold" />
+            </foreignObject>
+        </g>
+    );
+}
+
+export function ChartDemo({ data }: ChartDemoProps) {
     return (
         <LineChart
             h="calc(90vh - 150px)"
@@ -52,6 +74,15 @@ export function ChartDemo() {
                 strokeOpacity={0}
                 fill="var(--mantine-color-orange-4)"
             />
+            {data.flatMap((point) => (point.events ?? []).map((event, index) => (
+                <ReferenceDot
+                    key={`${point.time}-${event.type}-${index}`}
+                    x={point.time}
+                    y={point.Glucose}
+                    r={0}
+                    label={<EventMarker event={event} index={index} />}
+                />
+            )))}
         </LineChart>
     );
 }
